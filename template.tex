@@ -1,0 +1,179 @@
+\documentclass[12pt]{article}
+\usepackage[portuguese]{babel}
+% \usepackage{abnt}
+\usepackage[utf8]{inputenc}
+% \usepackage{fontspec}
+\usepackage{caption}
+\usepackage{quoting} 
+\usepackage{adjustbox}
+\usepackage{graphicx}
+\usepackage{gensymb}
+\usepackage{fancyhdr}
+\usepackage{extramarks}
+\usepackage{xparse}
+\usepackage{geometry}
+\usepackage{indentfirst}
+\usepackage{listings}
+\usepackage{multicol}
+\usepackage{multirow}
+\usepackage{wrapfig}
+\usepackage{stackengine}
+\usepackage{float}
+\usepackage{titlesec}
+\usepackage[table]{xcolor}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\usepackage[shortlabels]{enumitem}
+\usepackage{tkz-euclide}
+\usetikzlibrary{calc,babel,quotes,angles,fit}
+\usepackage{amsmath}
+\usepackage{cancel}
+\usepackage{lipsum}
+\usepackage{array}
+
+
+\usepackage{xcolor}
+\usepackage{amsmath, amsfonts, amssymb}
+\usepackage{makeidx}
+\usepackage{hyperref}
+\usepackage{bm}
+\usepackage{cancel}
+\usepackage{ulem}
+
+% usar Arial/Helvetica ---------------------------------------------------------
+\usepackage{helvet}
+\renewcommand{\familydefault}{\sfdefault}
+
+% Tamanho da folha e margens ---------------------------------------------------
+\geometry{
+    a4paper,
+    left=30mm,
+    right=20mm,
+    top=25mm,
+    bottom=25mm
+}
+
+% Tamanho, espaçamento da fonte ------------------------------------------------
+\setlength{\parindent}{12.5mm} % indentação paragrafo
+\setlength{\parskip}{10pt}  % espaço após o paragrafo
+\titlespacing{\section}{0mm}{0mm}{0mm}
+\renewcommand{\baselinestretch}{1.5} % espaçamento entre linhas
+
+\titleformat{\section}{\normalfont\fontsize{14pt}{15}\bfseries}{\thesection}{1em}{}
+\titleformat{\subsection}{\normalfont\fontsize{14pt}{15}\bfseries}{\thesubsection}{1em}{}
+\titleformat{\subsubsection}{\normalfont\fontsize{14pt}{15}\bfseries}{\thesubsubsection}{1em}{}
+
+\addto\captionsportuguese{% Replace "english" with the language you use
+  \renewcommand{\contentsname}%
+    {Sumário}%
+}
+
+% Bloco de código --------------------------------------------------------------
+
+\lstdefinestyle{customlst}{
+    backgroundcolor=\color{yellow!15},   
+    % basicstyle=\ttfamily\footnotesize,    
+    basicstyle=\ttfamily\fontsize{10pt}{10}\selectfont,           
+    numbers=left,                    
+    numbersep=5pt
+}
+\lstset{style=customlst}
+
+\newcounter{numcodevar}
+\newcommand{\numcode}{%
+   \stepcounter{numcodevar}%
+   \thenumcodevar}
+\renewcommand{\lstlistingname}{Código}
+
+\newcommand{\autorrel}{João do Espaguete Voador}
+\newcommand{\titulorel}{RELATÓRIO FINAL DE ESTÁGIO CURRICULAR SUPERVISIONADO REALIZADO NO ESPAÇO SIDERAL}
+\newcommand{\orientadorrel}{Prof. Dr. José Branchmerge }
+\newcommand{\cidaderel}{Cuiabá - MT}
+\newcommand{\anorel}{2021}
+\begin{document}
+    % capa ---------------------------------------------------------------------
+    \begin{titlepage}
+        \centering
+        % topo da página
+        \includegraphics[width=4cm]{assets/logo-ufmt.png}\\
+        {   
+            \fontsize{14pt}{14}\selectfont 
+            \textbf{Universidade Federal de Mato Grosso} \\
+            \textbf{Graduação em Engenharia de Computação} \\
+        }
+        
+        % meio da pagina
+        \vfill
+        {\textbf{\autorrel}\\}
+        {
+            \fontsize{14pt}{20}\selectfont
+            \textbf{\titulorel}\\
+        }
+        \vfill
+
+        % fim da página
+        {\textbf{\cidaderel}\\}
+        {\textbf{\anorel}}
+    \end{titlepage}
+
+    % folha de rosto -----------------------------------------------------------
+    \begin{titlepage}
+        \centering
+        % topo da página
+        \includegraphics[width=4cm]{assets/logo-ufmt.png}\\
+        {   
+            \fontsize{14pt}{14}\selectfont 
+            \textbf{Universidade Federal de Mato Grosso} \\
+            \textbf{Graduação em Engenharia de Computação} \\
+        }
+        
+        % meio da pagina
+        \vfill
+        {\textbf{\autorrel}\\}
+        {
+            \fontsize{14pt}{20}\selectfont
+            \textbf{\titulorel}\\
+        }
+        {
+            \begin{quoting}[leftmargin=6cm, rightmargin=0cm]
+                \fontsize{10pt}{15}\selectfont
+                Relatório Final de Estágio Curricular Supervisionado apresentado 
+                ao Curso de Graduação em Engenharia de Computação, da Faculdade 
+                de Engenharia, do Campus Universitário de Várzea Grande, da 
+                Universidade Federal de Mato Grosso, sob orientação do \orientadorrel da Faculdade de Engenharia.
+            \end{quoting}
+        }   
+        \vfill
+
+        % fim da página
+        {\textbf{\cidaderel}\\}
+        {\textbf{\anorel}}
+    \end{titlepage}
+
+    % \bibliographystyle{abnt}
+    
+
+    \include{relatorio}
+
+
+    % pagina "de acordo" -------------------------------------------------------
+    \pagebreak
+    \noindent
+    \fontsize{14pt}{14}\selectfont \textbf{DE ACORDO:}\\\\\\
+    {
+        \noindent
+        \fontsize{12pt}{12}\selectfont 
+        \textbf{Estagiário:}\uline{\hfill}\\
+        \hspace*{\fill} (João Espaguete Voador)\\\\\\
+        \textbf{Supervisor de estágio:}\uline{\hfill}\\
+        \hspace*{\fill} (Maria do Teste Automatizado)\\\\\\
+        \textbf{Orientador de estágio:}\uline{\hfill}\\
+        \hspace*{\fill} (José Branchmerge)\\\\\\
+        \textbf{Coordenador do Curso/Estágio:}\uline{\hfill}\\
+
+    }
+    % \include{glossario}
+
+    % \nocite{*}
+    % \bibliography{bibliografia}
+\end{document}
